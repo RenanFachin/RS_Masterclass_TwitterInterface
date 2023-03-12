@@ -3,6 +3,8 @@ import { Header } from "../components/Header/Header"
 import { Separator } from "../components/Separator/Separator"
 import { Tweet } from "../components/Tweet/Tweet"
 
+import TextareaAutosize from 'react-textarea-autosize';
+
 // CSS
 import './Timeline.css'
 
@@ -25,7 +27,10 @@ export function Timeline() {
             alt="Imagem do usuário"
           />
 
-          <textarea id="tweet" placeholder="What's happening?" />
+          <TextareaAutosize
+            id="tweet"
+            placeholder="What's happening?"
+          />
         </label>
 
         <button type="submit">

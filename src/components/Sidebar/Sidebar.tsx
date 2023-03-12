@@ -10,6 +10,9 @@ import {
   BookmarkSimple,
 } from 'phosphor-react'
 
+// Roteamento
+import { Link } from 'react-router-dom'
+
 // Assets
 import TwitterLogo from '../../assets/logo.twitter.svg'
 
@@ -22,10 +25,10 @@ export function Sidebar(){
         <img src={TwitterLogo} alt="logo" className='logo' />
 
         <nav className='main-navigation'>
-          <a className='active' href="">
+          <Link className='active' to="/">
             <House weight='fill' />
             Home
-          </a>
+          </Link>
 
           <a href="">
             <Hash />
