@@ -1,86 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-// ícones
-import {
-  Bell,
-  Hash,
-  House,
-  Envelope,
-  User,
-  DotsThreeCircle,
-  FileText,
-  BookmarkSimple, Sparkle
-} from 'phosphor-react'
-
-// Assets
-import TwitterLogo from './assets/logo.twitter.svg'
-
 // Estilizações
 import './global.css'
-import { Tweet } from './components/Tweet'
 
-
+// Componentes
+import { Tweet } from './components/Tweet/Tweet'
+import { Sidebar } from './components/Sidebar/Sidebar'
+import { Header } from './components/Header/Header'
+import { Separator } from './components/Separator/Separator'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <div className='layout'>
-      <aside className='sidebar'>
-        <img src={TwitterLogo} alt="logo" className='logo' />
-
-        <nav className='main-navigation'>
-          <a className='active' href="">
-            <House weight='fill' />
-            Home
-          </a>
-
-          <a href="">
-            <Hash />
-            Explore
-          </a>
-
-          <a href="">
-            <Bell />
-            Notifications
-          </a>
-
-          <a href="">
-            <Envelope />
-            Mesages
-          </a>
-
-          <a href="">
-            <BookmarkSimple />
-            Bookmarks
-          </a>
-
-          <a href="">
-            <FileText />
-            Lists
-          </a>
-
-          <a href="">
-            <User />
-            Profile
-          </a>
-
-          <a href="">
-            <DotsThreeCircle />
-            More
-          </a>
-        </nav>
-
-        <button className='new-tweet' type='button'>
-          Tweet
-        </button>
-      </aside>
+      <Sidebar />
 
       <div className='content'>
         <main className='timeline'>
-          <div className='timeline-header'>
-            Home
-            <Sparkle />
-          </div>
+          <Header title='Home'/>
 
           <form className='new-tweet-form'>
             <label htmlFor="tweet">
@@ -97,8 +34,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             </button>
           </form>
 
-          <div className='separator' />
-
+          <Separator />
 
           <Tweet />
           <Tweet />
