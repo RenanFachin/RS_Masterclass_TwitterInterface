@@ -11,7 +11,7 @@ import {
 } from 'phosphor-react'
 
 // Roteamento
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 // Assets
 import TwitterLogo from '../../assets/logo.twitter.svg'
@@ -25,10 +25,10 @@ export function Sidebar(){
         <img src={TwitterLogo} alt="logo" className='logo' />
 
         <nav className='main-navigation'>
-          <Link className='active' to="/">
+          <NavLink to="/">
             <House weight='fill' />
             Home
-          </Link>
+          </NavLink>
 
           <a href="">
             <Hash />
