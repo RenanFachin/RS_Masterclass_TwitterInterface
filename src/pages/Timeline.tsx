@@ -1,3 +1,6 @@
+// React Imports
+import { FormEvent, useEffect, useState } from "react";
+
 // Componentes
 import { Header } from "../components/Header/Header"
 import { Separator } from "../components/Separator/Separator"
@@ -8,19 +11,29 @@ import TextareaAutosize from 'react-textarea-autosize';
 // CSS
 import './Timeline.css'
 
-// Utils
-const tweets = [
-  'Meu primeiro tweet',
-  'Meu segundo tweet',
-  'Meu terceiro tweet'
-]
-
 export function Timeline() {
+  const [tweets, setTweets] = useState([
+    'Meu primeiro tweet',
+    'Meu segundo tweet',
+    'Meu terceiro tweet'
+  ])
+
+  const [newTweet, setNewTweet] = useState('')
+
+  function createNewTweet(event: FormEvent) {
+    event.preventDefault()
+
+    // Respeitando os princípios da imutabilidade
+    setTweets([newTweet, ...tweets])
+  }
+
+
+
   return (
     <main className='timeline'>
       <Header title='Home' />
 
-      <form className='new-tweet-form'>
+      <form className='new-tweet-form' onSubmit={createNewTweet}>
         <label htmlFor="tweet">
           <img
             src="https://github.com/RenanFachin.png"
@@ -30,6 +43,7 @@ export function Timeline() {
           <TextareaAutosize
             id="tweet"
             placeholder="What's happening?"
+            onChange={e => setNewTweet(e.target.value)}
           />
         </label>
 
