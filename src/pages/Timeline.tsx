@@ -1,12 +1,12 @@
 // React Imports
-import { FormEvent, useState, KeyboardEvent } from "react";
+import { FormEvent, useState, KeyboardEvent } from "react"
 
 // Componentes
 import { Header } from "../components/Header/Header"
 import { Separator } from "../components/Separator/Separator"
 import { Tweet } from "../components/Tweet/Tweet"
 
-import TextareaAutosize from 'react-textarea-autosize';
+import TextareaAutosize from 'react-textarea-autosize'
 
 // CSS
 import './Timeline.css'
