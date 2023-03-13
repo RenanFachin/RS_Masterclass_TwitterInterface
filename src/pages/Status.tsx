@@ -8,14 +8,29 @@ import TextareaAutosize from 'react-textarea-autosize';
 // CSS
 import './Status.css'
 
-// Utils
-const answers = [
-  'Concordo...',
-  'Olha, faz sentido',
-  'Parabéns pelo progresso.'
-]
+// React
+import { FormEvent, useState } from 'react';
 
 export function Status() {
+
+  const [answers, setAnswers] = useState([
+    'Concordo...',
+    'Olha, faz sentido',
+    'Parabéns pelo progresso.'
+  ])
+
+  const [newAnswer, setNewAnswer] = useState('')
+
+  function createNewAnswer(event: FormEvent) {
+    event.preventDefault()
+
+    // Respeitando os princípios da imutabilidade
+    setAnswers([newAnswer, ...answers])
+
+    setNewAnswer('')
+  }
+
+
   return (
     <main className='status'>
       <Header title='Tweet' />
@@ -26,7 +41,7 @@ export function Status() {
 
       <Separator />
 
-      <form className='answer-tweet-form'>
+      <form className='answer-tweet-form' onSubmit={createNewAnswer}>
         <label htmlFor="tweet">
           <img
             src="https://github.com/RenanFachin.png"
@@ -36,6 +51,8 @@ export function Status() {
           <TextareaAutosize
             id="tweet"
             placeholder="Tweet your answer"
+            value={newAnswer}
+            onChange={(event) => {setNewAnswer(event.target.value)}}
           />
         </label>
 

@@ -25,6 +25,8 @@ export function Timeline() {
 
     // Respeitando os princípios da imutabilidade
     setTweets([newTweet, ...tweets])
+
+    setNewTweet('')
   }
 
 
@@ -43,6 +45,7 @@ export function Timeline() {
           <TextareaAutosize
             id="tweet"
             placeholder="What's happening?"
+            value={newTweet}
             onChange={e => setNewTweet(e.target.value)}
           />
         </label>
