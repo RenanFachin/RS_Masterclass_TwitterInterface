@@ -1,5 +1,5 @@
 // React Imports
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState, KeyboardEvent } from "react";
 
 // Componentes
 import { Header } from "../components/Header/Header"
@@ -29,6 +29,18 @@ export function Timeline() {
     setNewTweet('')
   }
 
+  function handleHotKeySubmit(event: KeyboardEvent){
+    // Metakey é para usuários de mac
+    if (event.key === 'Enter' && (event.ctrlKey || event.metaKey )){
+      
+      // Submit
+      setTweets([newTweet, ...tweets])
+
+      setNewTweet('')
+    
+    }
+  }
+
 
 
   return (
@@ -45,6 +57,7 @@ export function Timeline() {
           <TextareaAutosize
             id="tweet"
             placeholder="What's happening?"
+            onKeyDown={handleHotKeySubmit}
             value={newTweet}
             onChange={e => setNewTweet(e.target.value)}
           />

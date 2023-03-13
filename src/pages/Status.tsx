@@ -9,7 +9,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import './Status.css'
 
 // React
-import { FormEvent, useState } from 'react';
+import { FormEvent, KeyboardEvent, useState } from 'react';
 
 export function Status() {
 
@@ -28,6 +28,17 @@ export function Status() {
     setAnswers([newAnswer, ...answers])
 
     setNewAnswer('')
+  }
+
+  function handleHotKeySubmit(event: KeyboardEvent){
+    // Metakey é para usuários de mac
+    if (event.key === 'Enter' && (event.ctrlKey || event.metaKey )){
+      
+      // Submit
+      setAnswers([newAnswer, ...answers])
+
+      setNewAnswer('')
+    }
   }
 
 
@@ -51,6 +62,7 @@ export function Status() {
           <TextareaAutosize
             id="tweet"
             placeholder="Tweet your answer"
+            onKeyDown={handleHotKeySubmit}
             value={newAnswer}
             onChange={(event) => {setNewAnswer(event.target.value)}}
           />
