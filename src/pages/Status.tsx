@@ -10,6 +10,7 @@ import './Status.css'
 
 // React
 import { FormEvent, KeyboardEvent, useState } from 'react';
+import { PaperPlaneRight } from 'phosphor-react';
 
 export function Status() {
 
@@ -69,7 +70,8 @@ export function Status() {
         </label>
 
         <button type="submit">
-          Answer
+          <PaperPlaneRight />
+          <span>Answer</span>
         </button>
       </form>
 
